@@ -1,0 +1,19 @@
+@keyframes rot {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+.ui.circular.image.sun {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    user-select: none;
+    -moz-user-seletct: none;
+    -webkit-user-seletct: none;
+    margin: auto !important;
+    position: absolute !important;
+}

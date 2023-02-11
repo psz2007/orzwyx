@@ -1,0 +1,43 @@
+<head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"
+        integrity="sha512-5cguXwRllb+6bcc2pogwIeQmQPXEzn2ddsqAexIBhh7FO1z5Hkek1J9mrK2+rmZCTU6b6pERxI7acnp1MpAg4Q=="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css"
+        integrity="sha512-n//BDM4vMPvyca4bJjZPDh7hlqsQ7hqbP9RH18GF2hTXBY5amBwM2501M0GPiwCU/v9Tor2m13GOTFjk00tkQA=="
+        crossorigin="anonymous" />
+    <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="src/main.js"></script>
+    <title>Orz WYXkk</title>
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui secondary pointing menu">
+            <a id="Main-lab" class="item" onclick="switchPage('Main')">主界面</a>
+            <a id="Upgrade-lab" class="item" onclick="switchPage('Upgrade')">升级</a>
+            <a id="Achievement-lab" class="item" onclick="switchPage('Achievement')">成就</a>
+            <p class="item">还没做完.jpg</p>
+            </div>
+        </div>
+        <div id="Main">
+            <p style="text-align: center">单击头像以开始膜拜</p>
+            <img id='redsun' width='50' height='50' onclick='bless()' class='ui circular image sun' style='animation: rot 3s infinite linear' src='130151.png'/>
+        </div>
+        <div id="Upgrade">
+            <p>你先别急，还在写</p>
+        </div>
+        <div id="Achievement">
+            <p>你先别急，还在写</p>
+        </div>
+        <div class="ui right visible thin sidebar">
+            <div id="messages" class="ui nags"></div>
+        </div>
+    </div>
+    <script>
+        startGame();
+    </script>
+</body>
