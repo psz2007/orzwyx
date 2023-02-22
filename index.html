@@ -16,18 +16,44 @@
 </head>
 <body>
     <div class="ui container">
-        <div class="ui secondary pointing menu">
-            <a id="Main-lab" class="item" onclick="switchPage('Main')">主界面</a>
-            <a id="Upgrade-lab" class="item" onclick="switchPage('Upgrade')">升级</a>
-            <a id="Achievement-lab" class="item" onclick="switchPage('Achievement')">成就</a>
+        <div class="ui pointing menu" style="position: sticky; top: 0">
+            <a id="Main-lab" class="item" onclick="switchPage('Main')">
+                <i class="home icon"></i>
+                主界面
+            </a>
+            <a id="Upgrade-lab" class="item" onclick="switchPage('Upgrade')">
+                <i class="angle double up icon"></i>
+                升级
+            </a>
+            <a id="Rebirth-lab" class="item" onclick="switchPage('Rebirth')">
+                <i class="sync alternate icon"></i>
+                转生
+            </a>
+            <a id="Achievement-lab" class="item" onclick="switchPage('Achievement')">
+                <i class="thumbs up outline icon"></i>
+                成就
+            </a>
             <p class="item">还没做完.jpg</p>
-            </div>
         </div>
         <div id="Main">
             <p style="text-align: center">单击头像以开始膜拜</p>
-            <img id='redsun' width='50' height='50' onclick='bless()' class='ui circular image sun' style='animation: rot 3s infinite linear' src='130151.png'/>
+            <script>
+                document.write("<p style='text-align: center'>你现在有 " + getName(0) + " 点数。</p>");
+            </script>
+            <img id='redsun' width='50' height='50' onclick='userClick()' class='ui circular image sun' style='animation: rot 3s infinite linear' src='130151.png'/>
         </div>
         <div id="Upgrade">
+            <p style="text-align: center">你先别急，还在写</p>
+            <div>
+                <script>
+                    document.write("花费 " + getName(2) + " 点数获得点击力量加倍，当前力量：" + getName(1) + "。");
+                </script>
+                <button class="ui primary button" onclick="upgrade1()">
+                    升级
+                </button>
+            </div>
+        </div>
+        <div id="Rebirth">
             <p>你先别急，还在写</p>
         </div>
         <div id="Achievement">

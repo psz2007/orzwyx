@@ -1,13 +1,25 @@
-let cnt = 0, id = 0;
+var cnt = 0, id = 0, clickPower = 1, upgcnt = [0];
 
-const pages = ["Main", "Upgrade", "Achievement"];
+const pages = ["Main", "Upgrade", "Rebirth", "Achievement"],
+    names = [
+        "curPoints",
+        "curPower",
+        "cost1"
+    ], func = [
+        "cnt",
+        "clickPower",
+        "Math.floor(Math.pow(2, upgcnt[0]) * 10)"
+    ];
 
-function newMessage(t) {
+function getName(s) {
+    return "<span name='" + names[s] + "'></span>";
+}
+function newMessage(t, col = "red") {
     let msg = document.createElement("div"), cur = ++id;
     msg.setAttribute("id", "msg-" + cur);
-    msg.setAttribute("class", "ui red nag");
+    msg.setAttribute("class", "ui " + col + " inverted nag");
     msg.setAttribute("onclick", "$('#msg-" + cur + "').nag('hide');");
-    msg.innerHTML = "<div class='title'>" + t + "</div>";
+    msg.innerHTML = "<div class='title' style='color: #FFF;'>" + t + "</div>";
     document.getElementById("messages").appendChild(msg);
     $("#msg-" + cur).nag("show");
     setTimeout(function () {
@@ -33,14 +45,32 @@ function switchPage(s) {
         alert("the pages do not exist");
     }
 }
+function upgrade1() {
+    let c = eval(func[2]);
+    if (cnt < c) {
+        alert("所有点数不足");
+        return;
+    }
+    cnt -= c, clickPower *= 2, upgcnt[0]++, flushSun();
+}
 
-function bless() {
+function flushSun() {
+    for (let i in names) {
+        let list = document.getElementsByName(names[i]);
+        for (let j in list) {
+            list[j].innerHTML = eval(func[i]);
+        }
+    }
+    document.getElementById("redsun").setAttribute("width", 50 + Math.floor(Math.log10(cnt * 5. + 1)));
+    document.getElementById("redsun").setAttribute("height", 50 + Math.floor(Math.log10(cnt * 5. + 1)));
+}
+function userClick() {
     cnt++;
     newMessage("您膜拜了 WYXkk");
-    document.getElementById("redsun").setAttribute("width", 50 + Math.floor(Math.sqrt(cnt / 3.)));
-    document.getElementById("redsun").setAttribute("height", 50 + Math.floor(Math.sqrt(cnt / 3.)));
+    flushSun();
 }
 
 function startGame() {
     switchPage("Main");
+    flushSun();
 }
